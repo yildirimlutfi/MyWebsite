@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<head>
+    <title>Snake Game</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/game.js" defer type="module"></script>
+
+</head>
+<body>
+    <div id="score">0</div>
+    <canvas id="gameCanvas"></canvas>
+    @*<div class="screenSize">
+            <button class="screenSizeButton"><span>screen size</span></button>
+            <div class="screenSizeButtonContent">
+                <a onclick="changeSize('small')" class="screenOption" id="smallScreen"><span>➤ small</span></a>
+                <a onclick="changeSize('medium')" class="screenOption" id="mediumScreen"><span>➤ medium</span></a>
+                <a onclick="changeSize()" class="screenOption" id="largeScreen"><span>➤ large</span></a>
+            </div>
+        </div>*@
+
+    <div class="btn-group dropright">
+        <button class="btn screenSizeButton dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>screen size</span></button>
+        <div class="dropdown-menu screenSizeButton">
+            <a onclick="changeSize('small')" class="dropdown-item" id="smallScreen"><span>➤ small</span></a>
+            <a onclick="changeSize('medium')" class="dropdown-item" id="mediumScreen"><span>➤ medium</span></a>
+            <a onclick="changeSize()" class="dropdown-item" id="largeScreen"><span>➤ large</span></a>
+        </div>
+    </div>
+
+    <div class="start">
+        <button class="startButton">start</button>
+    </div>
+</body>
