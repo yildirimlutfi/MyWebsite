@@ -1,38 +1,39 @@
 ﻿// renkler
 const board_border = 'black'
 const board_background = 'white'
-const snake_color = 'lightblue'
+const snake_color = 'black'
 const snake_border = 'darkblue'
 // canvas'ı al
 const snakeBoard = document.getElementById("gameCanvas")
 // 2 boyutlu çizim bağlamı döndür
 const snakeBoard_ctx = gameCanvas.getContext("2d")
 //------------------------------------------------------
-snakeBoard.width = 600
-snakeBoard.height = 600
+snakeBoard.width = 460
+snakeBoard.height = 460
 //------------------------------------------------------
 let changing_direction = false
+let walled = true
 let score = 0
-let food_x;
-let food_y;
-let speed = 100;
+let food_x
+let food_y
+let speed
 // yatay hız
-let dx = 0;
+let dx
 // dikey hız
-let dy = 0;
-let snake = [
-    { x: snakeBoard.width / 2, y: snakeBoard.height / 2 },
-    { x: snakeBoard.width / 2 - 10, y: snakeBoard.height / 2 - 10 }
-]
+let dy
+let snake = []
 
-main()
-genFood()
 document.addEventListener("keydown", changeDirection)
 document.addEventListener("keydown", turbo)
 //------------------------------------------------------
 // oyunu çalışır durumda tutmak için kendi içinde çağır
 function main() {
-    if (hasGameEnded()) return
+    if (hasGameEnded()) {
+        document.getElementById('options').hidden = false;
+        return
+    }
+
+
     // yön değiştiriyorsa -> true
     changing_direction = false;
     // yılanın önceki tüm konumlarını kaldırmak için setTimeout içinde clearCanvas() çağrılır
@@ -41,6 +42,8 @@ function main() {
         drawFood()
         moveSnake()
         drawSnake()
+        if (walled == false)
+            unwalled()
         // tekrar et
         main()
     }, speed)
@@ -62,10 +65,10 @@ function drawSnake() {
 }
 //------------------------------------------------------
 function drawFood() {
-    snakeBoard_ctx.fillStyle = 'lightgreen'
-    snakeBoard_ctx.strokeStyle = 'darkgreen'
+    snakeBoard_ctx.fillStyle = 'pink'
+    snakeBoard_ctx.strokeStyle = 'black'
     snakeBoard_ctx.fillRect(food_x, food_y, 10, 10)
-    snakeBoard_ctx.strokeRect(food_x, food_y, 10, 10)
+    //snakeBoard_ctx.strokeRect(food_x, food_y, 10, 10)
 }
 //------------------------------------------------------
 function drawSnakePart(snakePart) {
@@ -74,14 +77,15 @@ function drawSnakePart(snakePart) {
     // yılanın sınırlarının rengi
     snakeBoard_ctx.strokeStyle = snake_border
     // yılanın parçasını oluştur
-    snakeBoard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10)
+    snakeBoard_ctx.roundRect(snakePart.x, snakePart.y, 10, 10, 0)
     // yılanın parçasının sınır çizgilerini oluştur
-    snakeBoard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10)
+    snakeBoard_ctx.strokeRect(snakePart.x, snakePart.y, 0, 0)
+    snakeBoard_ctx.fill()
 }
 //------------------------------------------------------
 function hasGameEnded() {
     for (let i = 4; i < snake.length; i++) {
-        if (snake[i].x === snake.x && snake[i].y === snake[0].y) return true
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
     }
     const hitLeftWall = snake[0].x < 0
     const hitRightWall = snake[0].x > snakeBoard.width - 10
@@ -165,15 +169,16 @@ function changeSize(value) {
         snakeBoard.height = 300
     }
     else if (value == 'medium') {
+        snakeBoard.width = 460
+        snakeBoard.height = 460
+    }
+    else if (value == 'large') {
         snakeBoard.width = 600
         snakeBoard.height = 600
     }
-    else {
-        snakeBoard.width = 900
-        snakeBoard.height = 900
-    }
+    else return
 }
-
+//------------------------------------------------------
 function turbo(event) {
     const SPACE_KEY = 32
     if (event.keyCode === SPACE_KEY && speed == 100)
@@ -181,4 +186,52 @@ function turbo(event) {
     else if (event.keyCode === SPACE_KEY && speed == 35)
         speed = 100
     else return
+}
+//------------------------------------------------------
+function startGame() {
+    changing_direction = false
+    score = 0
+    document.getElementById('score').innerHTML = score
+    speed = 100
+    dx = 0
+    dy = 0
+    snake = [
+        { x: snakeBoard.width / 2, y: snakeBoard.height / 2 },
+        { x: snakeBoard.width / 2 - 10, y: snakeBoard.height / 2 - 10 }
+    ]
+    main()
+    genFood()
+    document.getElementById('options').hidden = true;
+    document.getElementsByClassName('score').hidden = false;
+}
+//------------------------------------------------------
+function unwalled() {
+    // sol
+    if (snake[0].x <= - 10) snake[0].x = snakeBoard.width - 10
+    // yukarı
+    if (snake[0].y <= - 10) snake[0].y = snakeBoard.height - 10
+    // sağ
+    if (snake[0].x >= snakeBoard.width) snake[0].x = 0
+    // aşağı
+    if (snake[0].y >= snakeBoard.height) snake[0].y = 0
+}
+//------------------------------------------------------
+function changeWallMode(value) {
+    if (value == 'walled')
+        walled = true
+    if (value == 'unwalled')
+        walled = false
+}
+//------------------------------------------------------
+CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, radius) {
+    if (width < 2 * radius) radius = width / 2;
+    if (height < 2 * radius) radius = height / 2;
+    this.beginPath();
+    this.moveTo(x + radius, y);
+    this.arcTo(x + width, y, x + width, y + height, radius);
+    this.arcTo(x + width, y + height, x, y + height, radius);
+    this.arcTo(x, y + height, x, y, radius);
+    this.arcTo(x, y, x + width, y, radius);
+    this.closePath();
+    return this;
 }

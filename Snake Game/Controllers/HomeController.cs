@@ -23,12 +23,12 @@ namespace Snake_Game.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Calculator()
         {
             return View();
         }
 
-        public IActionResult Game()
+        public IActionResult SnakeGame()
         {
             return View();
         }
