@@ -1,0 +1,122 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+#calculatorBody {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.calculator {
+    position: relative;
+    display: grid;
+}
+
+.value {
+    grid-column: span 4;
+    height: 50px;
+    text-align: right;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-top: none;
+}
+
+.mini-value {
+    grid-column: span 4;
+    height: 25px;
+    text-align: right;
+    border: none;
+    outline: none;
+    padding: 2%;
+    font-size: 14px;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+}
+
+.button-style {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background: #0c2835;
+    place-items: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+    .button-style:active {
+        background: #74FF3B;
+        color: #111;
+    }
+
+.clear {
+    grid-column: span 2;
+    width: 120px;
+    background: #ff3077;
+    border: 100px;
+}
+
+    .clear:active {
+        background: #d10048;
+    }
+
+.equal {
+    grid-column: span 1;
+    background: #03b1ff;
+    border: 1px;
+}
+
+    .equal:active {
+        background: #33c0ff;
+    }
+
+.delete {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    background: #ff3077;
+    place-items: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+    .delete:active {
+        background: #ff0057;
+    }
+
+.operator-button {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background: #ff9100;
+    place-items: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+    .operator-button:active {
+        background: #ffae42;
+    }
+
+.diger-class {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background: #0c2835;
+    place-items: center;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+    .diger-class:active {
+        background: #19cfbf;
+    }

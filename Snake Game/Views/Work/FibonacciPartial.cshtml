@@ -1,0 +1,20 @@
+﻿@model IEnumerable<int> 
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <span>FIBONACCI DİZİSİ</span>
+        </div>
+        <div class="card-body">
+            @foreach (var item in Model)
+            {
+                <span>@item</span>
+            }
+        </div>
+    </div>
+}
+else
+	{
+	         <span>Bir Hata Oluştu!</span>
+	}

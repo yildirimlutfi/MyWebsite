@@ -1,6 +1,6 @@
 using System;
 
-namespace Snake_Game.Models
+namespace MyWebsite.Models
 {
     public class ErrorViewModel
     {

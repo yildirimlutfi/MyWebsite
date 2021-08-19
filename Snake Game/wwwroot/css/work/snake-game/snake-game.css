@@ -1,0 +1,86 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+#snakeBody {
+    font-family: 'Bowlby One SC', cursive;
+}
+
+#gameCanvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scoreBoard {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.scoreBox {
+    font-size: 25px;
+}
+
+.commonProperties {
+    transition-property: all;
+    transition-duration: .5s;
+    background-color: #ff9999 !important;
+    color: white !important;
+    padding: 5px !important;
+    border: none !important;
+    border-radius: 20px 20px 20px 20px !important;
+    min-width: 0 !important;
+    padding: .35rem 1px !important;
+    box-shadow: none !important;
+}
+
+.screenSizeButton {
+    width: 250px !important;
+    height: 75px !important;
+    font-size: 25px !important;
+}
+
+    .screenSizeButton:hover {
+        color: black !important;
+        background-color: #FFB7B7 !important;
+        border-radius: 110px 110px 110px 110px !important;
+    }
+
+.screenSizeButtonMenu {
+    font-size: 18px !important;
+    animation: opac 0.8s
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+}
+
+.screenSize:hover .screenSizeButtonContent {
+    display: block;
+}
+
+.childClass {
+    transition-property: all;
+    transition-duration: 1s !important;
+    padding: .25rem 0.75rem !important;
+    color: white;
+}
+
+    .childClass:hover {
+        background-color: #FFB7B7 !important;
+        color: black !important;
+        border-radius: 20px 20px 20px 20px !important;
+    }
+
+.center {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

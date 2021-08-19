@@ -1,0 +1,36 @@
+﻿<head>
+    <title>Yılan Oyunu</title>
+    <link href="~/css/work/snake-game/snake-game.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="snakeBody">
+        <div class="scoreBoard">
+            <span class="commonProperties scoreBox">score: <span id="score">0</span></span>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="center" id="options">
+            <button id="startButton" onclick="startGame()" class="btn screenSizeButton commonProperties"><span>start</span></button><br /><br />
+            <div class="btn-group dropend">
+                <button class="btn screenSizeButton dropdown-toggle commonProperties" data-bs-toggle="dropdown" aria-expanded="false"><span>game mode</span></button>
+                <div class="dropdown-menu screenSizeButtonMenu commonProperties">
+                    <a onclick="changeWallMode('walled')" class="dropdown-item childClass"><span>➤ walled</span></a>
+                    <a onclick="changeWallMode('unwalled')" class="dropdown-item childClass"><span>➤ unwalled</span></a>
+                </div>
+            </div>
+            <br /><br />
+            <div class="btn-group dropend">
+                <button class="btn screenSizeButton dropdown-toggle commonProperties" data-bs-toggle="dropdown" aria-expanded="false"><span>screen size</span></button>
+                <div class="dropdown-menu screenSizeButtonMenu commonProperties">
+                    <a onclick="changeSize('small')" id="smallScreen" class="dropdown-item childClass"><span>➤ small</span></a>
+                    <a onclick="changeSize('medium')" id="mediumScreen" class="dropdown-item childClass"><span>➤ medium</span></a>
+                    <a onclick="changeSize('large')" id="largeScreen" class="dropdown-item childClass"><span>➤ large</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <script src="~/js/work/snake-game/snake-game.js" asp-append-version="true"></script>
+}

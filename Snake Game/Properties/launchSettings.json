@@ -16,7 +16,7 @@
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       }
     },
-    "Snake_Game": {
+    "MyWebsite": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

@@ -1,0 +1,64 @@
+﻿.cardProperty {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    flex-direction: row !important;
+    /*    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    text-align: center;
+    border: none;
+    background-color: transparent !important;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.fiboProperty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+}
+
+    .fiboProperty .card-header, .card-body {
+        text-align: center;
+        font-weight: bold;
+    }
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inputProperty {
+    background-color: cyan !important;
+    border: 5px solid cyan;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 20%;
+}
+
+    .inputProperty:focus-visible {
+        outline: none !important;
+    }
+
+.buttonProperty {
+    background-color: lightcoral;
+    border: 5px solid lightcoral;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: bold;
+}
+
+    .buttonProperty:active {
+        background-color: #f05959;
+        border: 5px solid #f05959;
+    }
+
+button:focus {
+    outline: none !important;
+}
+
+.fiboHeader {
+    text-align: center;
+}

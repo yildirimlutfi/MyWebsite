@@ -1,0 +1,22 @@
+﻿<head>
+    <link href="~/css/work/fibonacci-sequence/fibonacci-sequence.css" rel="stylesheet" />
+    <script src="~/js/work/fibonacci-sequence/fibonacci-sequence.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <div style="text-align:center">
+            <img src="~/gif/fibo seqo.gif" />
+        </div>
+        <div class="card cardProperty" id="fib">
+            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                   maxlength="2"
+                   id="input"
+                   class="inputProperty"
+                   type="number"
+                   placeholder="enter a number" />
+            <button class="buttonProperty" onclick="myfunction()">OK</button>
+        </div>
+        <div id="fibo_result" class="fiboProperty"></div>
+    </div>
+</body>
