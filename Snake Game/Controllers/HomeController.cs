@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Snake_Game.Models;
-using System;
-using System.Collections.Generic;
+using MyWebsite.Models;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Snake_Game.Controllers
+namespace MyWebsite.Controllers
 {
     public class HomeController : Controller
     {
@@ -19,16 +15,6 @@ namespace Snake_Game.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Calculator()
-        {
-            return View();
-        }
-
-        public IActionResult SnakeGame()
         {
             return View();
         }
